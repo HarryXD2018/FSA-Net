@@ -165,8 +165,6 @@ def main():
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1024*1)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 768*1)
-    
-
 
     print('Start detecting pose ...')
     detected_pre = np.empty((1,1,1))
@@ -178,7 +176,6 @@ def main():
         img_idx = img_idx + 1
         img_h, img_w, _ = np.shape(input_img)
 
-        
         if img_idx==1 or img_idx%skip_frame == 0:
             time_detection = 0
             time_network = 0
@@ -211,6 +208,9 @@ def main():
             detected_pre = detected
 
         key = cv2.waitKey(1)
-        
+        if key == ord('q'):
+            break
+
+
 if __name__ == '__main__':
     main()
