@@ -12,7 +12,12 @@ from keras.layers import Average
 # from mtcnn.mtcnn import MTCNN
 
 def draw_axis(img, yaw, pitch, roll, tdx=None, tdy=None, size = 50):
-    print(yaw,roll,pitch)
+    print(yaw, roll, pitch)
+    if yaw > 10:
+        cv2.putText(img, 'right', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2)
+    elif yaw < -10:
+        cv2.putText(img, 'left', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2)
+
     pitch = pitch * np.pi / 180
     yaw = -(yaw * np.pi / 180)
     roll = roll * np.pi / 180
@@ -43,7 +48,8 @@ def draw_axis(img, yaw, pitch, roll, tdx=None, tdy=None, size = 50):
     cv2.line(img, (int(tdx), int(tdy)), (int(x3),int(y3)),(255,0,0),2)
 
     return img
-    
+
+
 def draw_results_ssd(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_detection,time_network,time_plot):
     
     # loop over the detections
@@ -209,6 +215,7 @@ def main():
 
         key = cv2.waitKey(1)
         if key == ord('q'):
+            os.system('rm img/*.png')
             break
 
 
