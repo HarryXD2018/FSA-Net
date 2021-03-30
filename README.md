@@ -15,18 +15,18 @@
 <img src="https://github.com/shamangary/FSA-Net/blob/master/Compare_AFLW2000_gt_Hopenet_FSA.gif" height="320"/>
 
 ### (New!!!) Fast and robust demo with SSD face detector (2019/08/30)
-<img src="https://github.com/shamangary/FSA-Net/blob/master/FSA_SSD_demo.gif" height="300"/>
+<img src="FSA_SSD_demo.gif" height="300"/>
 
 ### Webcam demo
 
 | Signle person (LBP) | Multiple people (MTCNN)|
 | --- | --- |
-| <img src="https://github.com/shamangary/FSA-Net/blob/master/webcam_demo.gif" height="220"/> | <img src="https://github.com/shamangary/FSA-Net/blob/master/webcam_demo_cvlab_citi.gif" height="220"/> |
+| <img src="ebcam_demo.gif" height="220"/> | <img src="webcam_demo_cvlab_citi.gif" height="220"/> |
 
 
 | Time sequence | Fine-grained structure|
 | --- | --- |
-| <img src="https://github.com/shamangary/FSA-Net/blob/master/time_demo.png" height="160"/> | <img src="https://github.com/shamangary/FSA-Net/blob/master/heatmap_demo.png" height="330"/> |
+| <img src="time_demo.png" height="160"/> | <img src="heatmap_demo.png" height="330"/> |
 
 
 

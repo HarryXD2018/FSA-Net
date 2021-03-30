@@ -1,0 +1,11 @@
+today I am going to try replace the 2nd stream in the 2-stream structure, and I will try add the 3rd stream
+if the d4s2 fail.
+
+d4s2 denotes depth map for 2nd stream.
+
+Todo list:
+1. understand how the npz file is made.
+2. figure out how the input and two-stream code works.
+3. figure out the requirement of the input images.
+4. made the RGB-D version npz under the requirement in step 3.
+5. training and hopefully it will work.
