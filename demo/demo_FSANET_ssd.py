@@ -1,13 +1,15 @@
 import os
 import cv2
 import sys
-sys.path.append('..')
-import numpy as np
-from math import cos, sin
-# from moviepy.editor import *
-from lib.FSANET_model import *
 import numpy as np
 from keras.layers import Average
+from math import cos, sin
+import socket
+sys.path.append('..')
+
+# from moviepy.editor import *
+from lib.FSANET_model import *
+
 # from moviepy.editor import *
 # from mtcnn.mtcnn import MTCNN
 
@@ -88,7 +90,10 @@ def draw_results_ssd(detected,input_img,faces,ad,img_size,img_w,img_h,model,time
                 
                 face = face.squeeze()
                 img = draw_axis(input_img[yw1:yw2 + 1, xw1:xw2 + 1, :], p_result[0][0], p_result[0][1], p_result[0][2])
-                
+
+                pose = [p_result[0][0], p_result[0][1], p_result[0][2]]
+                client_socket.sendto(pose.__str__().encode('utf8'), address)
+                # p_result[0][0], p_result[0][1], p_result[0][2]
                 input_img[yw1:yw2 + 1, xw1:xw2 + 1, :] = img
                 
     cv2.imshow("result", input_img)
@@ -220,4 +225,6 @@ def main():
 
 
 if __name__ == '__main__':
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    address = ('192.168.0.118', 8080)
     main()
